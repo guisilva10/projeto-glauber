@@ -1,0 +1,31 @@
+﻿@model CultivosEInsumos
+
+@{
+    ViewData["Title"] = "Registrar Cultivos e Insumos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Registrar Cultivos e Insumos</h1>
+</div>
+
+<form method="post" asp-action="Criar">
+    <div class="mb-3">
+        <label for="Cultivo" class="form-label">Cultivo</label>
+        <input type="text" class="form-control" id="Cultivo" name="Cultivo" value="@Model.Cultivo" asp-for="Cultivo" placeholder="Insira o tipo do cultivo" required>
+    </div>
+    <div class="mb-3">
+        <label for="Insumo" class="form-label">Insumo</label>
+        <input type="text" class="form-control" id="Insumo" name="Insumo" value="@Model.Insumo" asp-for="Insumo" placeholder="Insira o tipo do insumo" required>
+    </div>
+    <div class="mb-3">
+        <label for="Fornecedor" class="form-label">Fornecedor</label>
+        <input type="text" class="form-control" id="Fornecedor" name="Fornecedor" value="@Model.Fornecedor" asp-for="Fornecedor" placeholder="Insira o nome do fornecedor" required>
+    </div>
+      <div class="mb-3">
+        <label for="Price" class="form-label">Preço</label>
+        <input type="number" class="form-control" id="Price" name="Price" asp-for="Price" step="0.01" placeholder="Insira o preço do cultivo e insumo" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <a class="btn btn-secondary" asp-controller="Insumos" asp-action="Index" role="button">Voltar</a>
+</form>

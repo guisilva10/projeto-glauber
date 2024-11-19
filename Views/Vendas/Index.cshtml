@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Vendas>
+
+@{
+    ViewData["Title"] = "Vendas";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Vendas Registradas</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Forma de Pagamento</th>
+            <th>Valor</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var venda in Model)
+        {
+            <tr>
+                <td>@venda.Cliente</td>
+                <td>@venda.Produto</td>
+                <td>@venda.Quantidade</td>
+                <td>@venda.FormaDePagamento</td>
+                <td>@venda.Valor</td>
+                <td>
+                    <a href="@Url.Action("Editar", new { id = venda.Id })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("ApagarConfirmacao", new { id = venda.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Criar")" class="btn btn-primary">Adicionar Nova Venda</a>

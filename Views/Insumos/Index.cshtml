@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CultivosEInsumos>
+
+@{
+    ViewData["Title"] = "Listagem de Cultivos e Insumos";
+}
+<div class="text-center">
+    <h1 class="display-4">Cultivos e Insumos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">CULTIVO</th>
+                <th scope="col">INSUMO</th>
+                <th scope="col">FORNECEDOR</th>
+                <th scope="col">PREÇO</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var insumo in Model)
+            {
+                <tr>
+                    <th scope="row">@insumo.Id</th>  
+                    <td>@insumo.Cultivo</td>
+                    <td>@insumo.Insumo</td>
+                    <td>@insumo.Fornecedor</td>
+                    <td>@insumo.Price</td>
+                    <td>
+                        <div class="btn-group gap-2" role="group">
+                            <a role="button" class="btn btn-primary" asp-controller="Insumos" asp-action="Editar" asp-route-id="@insumo.Id">Editar</a>
+                            <a role="button" class="btn btn-danger" asp-controller="Insumos" asp-action="ApagarConfirmacao" asp-route-id="@insumo.Id">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Insumos" asp-action="Criar">Registrar Cultivo e Insumos</a>
+    </div>
+</div>

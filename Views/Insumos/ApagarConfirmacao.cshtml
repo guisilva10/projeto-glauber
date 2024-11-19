@@ -1,0 +1,17 @@
+﻿@model CultivosEInsumos
+
+@{
+    ViewData["Title"] = "Confirmação apagar";
+}
+
+<div class="text-center">
+    <h3>Deseja realmente apagar o registro?</h3>
+</div>
+
+<form method="post" asp-action="ApagarConfirmacao" asp-controller="Insumos">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-outline-danger d-grid gap-2">Confirmar exclusão</button>
+</form>
+
+<br />
+<a class="btn btn-outline-primary d-grid gap-2" role="button" asp-controller="Insumos" asp-action="Index">Cancelar exclusão</a>

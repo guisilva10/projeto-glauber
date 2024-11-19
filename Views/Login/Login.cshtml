@@ -1,0 +1,71 @@
+﻿@* Views/Login/Login.cshtml *@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Terra Verde</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        /* Estilos para a imagem de fundo */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Fica atrás do formulário */
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 10;
+            max-width: 400px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100">
+
+    <!-- Imagem de fundo -->
+	<img src="~/12918eb8-cd58-4460-83a6-ec8e83d3f272.jpeg" alt="Background" class="background-image">
+
+    <!-- Formulário de login -->
+    <div class="login-container">
+        <h2 class="text-center mb-4">Login</h2>
+        <form asp-action="Authenticate" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Email</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Digite seu email" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha" required />
+            </div>
+
+            @* Exibe mensagem de erro, se houver *@
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger text-center" role="alert">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

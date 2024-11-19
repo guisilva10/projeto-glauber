@@ -1,0 +1,42 @@
+﻿@model Vendas
+
+<div class="text-center">
+    <h1 class="display-4">Editar Venda</h1>
+</div>
+
+<form method="post" asp-action="Editar">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label for="Cliente" class="form-label">Cliente</label>
+        <input type="text" class="form-control" id="Cliente" name="Cliente" asp-for="Cliente" placeholder="Insira o nome do Cliente" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Produto" class="form-label">Produto</label>
+        <input type="text" class="form-control" id="Produto" name="Produto" asp-for="Produto" placeholder="Insira o produto" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Quantidade" class="form-label">Quantidade</label>
+        <input type="number" class="form-control" id="Quantidade" name="Quantidade" asp-for="Quantidade" placeholder="Insira a quantidade" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Valor" class="form-label">Valor</label>
+        <input type="number" class="form-control" id="Valor" name="Valor" asp-for="Valor" placeholder="Insira o valor" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="FormaDePagamento" class="form-label">Forma de Pagamento</label>
+        <select class="form-select" id="FormaDePagamento" asp-for="FormaDePagamento" name="FormaDePagamento" aria-label="Forma de pagamento" required>
+            <option value="" disabled>Selecione a forma de pagamento</option>
+            <option value="Crédito@(Model.FormaDePagamento == "Crédito" ? "selected" : "")">Crédito</option>
+            <option value="Débito @(Model.FormaDePagamento == "Débito" ? "selected" : "")">Débito</option>
+            <option value="Pix @(Model.FormaDePagamento == "Pix" ? "selected" : "")">Pix</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a class="btn btn-secondary" asp-controller="Vendas" asp-action="Index" role="button">Voltar</a>
+</form>

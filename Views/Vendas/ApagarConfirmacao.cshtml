@@ -1,0 +1,17 @@
+﻿@model Vendas
+
+@{
+    ViewData["Title"] = "Confirmação de Exclusão";
+}
+
+<div class="text-center">
+    <h3>Deseja realmente apagar o registro da venda de <strong>@Model.Cliente</strong>?</h3>
+</div>
+
+<form method="post" asp-action="ApagarConfirmacao" asp-asp-controller="Vendas">
+    <button type="submit" class="btn btn-outline-danger d-grid gap-2">Confirmar Exclusão</button>
+</form>
+
+<br />
+
+<a class="btn btn-outline-primary d-grid gap-2" role="button" asp-controller="Vendas" asp-action="Index">Cancelar Exclusão</a>
