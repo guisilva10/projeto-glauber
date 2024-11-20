@@ -1,6 +1,6 @@
 public class CultivosEInsumos
 {
-  public int Id { get; set; }  
+    public int Id { get; set; }  
     public int CultivoId { get; set; } 
     public string Cultivo { get; set; }  
 

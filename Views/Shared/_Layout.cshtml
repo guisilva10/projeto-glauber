@@ -7,8 +7,26 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/projetopim.styles.css" asp-append-version="true" />
+       <style>
+        /* Estilos para a imagem de fundo */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Fica atrás do formulário */
+        }
+
+        .bg-footer{
+        background-color: #fff;
+        }
+
+    </style>
 </head>
 <body>
+    <img src="~/TERRAVERDAO.webp" alt="Background" class="background-image">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -33,13 +51,13 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="central">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-footer">
         <div class="container">
             &copy; 2024 - Terra Verde
         </div>

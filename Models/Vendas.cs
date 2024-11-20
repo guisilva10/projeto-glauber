@@ -8,4 +8,5 @@ public class Vendas
     public int Quantidade { get; set; } 
     public decimal Valor { get; set; } 
     public string FormaDePagamento { get; set; }  
+    
 }

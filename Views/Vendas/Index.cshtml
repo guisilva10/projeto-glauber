@@ -4,6 +4,8 @@
     ViewData["Title"] = "Vendas";
 }
 
+<div class="container-card">
+    
 <div class="text-center">
     <h1 class="display-4">Vendas Registradas</h1>
 </div>
@@ -29,7 +31,7 @@
                 <td>@venda.FormaDePagamento</td>
                 <td>@venda.Valor</td>
                 <td>
-                    <a href="@Url.Action("Editar", new { id = venda.Id })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Editar", new { id = venda.Id })" class="btn btn-primary">Editar</a>
                     <a href="@Url.Action("ApagarConfirmacao", new { id = venda.Id })" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
@@ -38,3 +40,6 @@
 </table>
 
 <a href="@Url.Action("Criar")" class="btn btn-primary">Adicionar Nova Venda</a>
+<a asp-action="GerarRelatorio" class="btn btn-primary">Gerar Relatório</a>
+
+</div>
